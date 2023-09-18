@@ -13,6 +13,11 @@ class Api::V1::GreetingsController < ApplicationController
     render json: @greeting
   end
 
+  def random
+    @greeting = Greeting.all.sample
+    render json: @greeting
+  end
+
   # POST /greetings
   def create
     @greeting = Greeting.new(greeting_params)
